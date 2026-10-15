@@ -1,0 +1,17 @@
+title: AI / ML Notes
+description: Krótkie analizy badań i narzędzi AI. Źródła, konkrety i ograniczenia.
+url: https://grjus.github.io
+baseurl: ""
+lang: pl
+timezone: Europe/Warsaw
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - docs

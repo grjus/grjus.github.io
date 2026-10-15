@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="intro">
+  <p class="eyebrow">Notatki o sztucznej inteligencji</p>
+  <h1>Co warto przeczytać.<br><span>I dlaczego.</span></h1>
+  <p class="lead">Badania i narzędzia AI / ML: co się zmieniło, na czym opierają się wyniki i gdzie kończą się obietnice.</p>
+</section>
+<section aria-labelledby="latest-title">
+  <div class="section-heading"><h2 id="latest-title">Ostatnie wpisy</h2><span>{{ site.posts | size }} wpisów</span></div>
+  {% for post in site.posts %}
+  <article class="post-card">
+    <p class="eyebrow"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time> · {{ post.category | default: 'AI / ML' | escape }}</p>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+    <p>{{ post.description | escape }}</p>
+    <a class="read-link" href="{{ post.url | relative_url }}">Czytaj analizę <span aria-hidden="true">↗</span><span class="sr-only">: {{ post.title | escape }}</span></a>
+  </article>
+  {% endfor %}
+</section>
