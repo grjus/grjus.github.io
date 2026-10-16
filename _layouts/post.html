@@ -2,12 +2,30 @@
 layout: default
 ---
 <article>
-  <a class="back-link" href="{{ '/' | relative_url }}">← Wszystkie wpisy</a>
+  <a class="back-link" href="{{ '/' | relative_url }}">← All briefings</a>
   <header class="post-header">
-    <p class="eyebrow"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time> · AI / ML</p>
+    <p class="eyebrow">Research briefing · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d %b %Y · %H:%M %Z' }}</time></p>
     <h1>{{ page.title | escape }}</h1>
     <p class="lead">{{ page.description | escape }}</p>
   </header>
-  <div class="prose">{{ content }}</div>
-  <aside class="publication-note">Wpis przygotowany z pomocą AI na podstawie podlinkowanych źródeł. Pierwsza publikacja testuje proces research → repozytorium → GitHub Pages.</aside>
+  <div class="report-layout">
+    <nav class="report-nav" aria-label="In this briefing">
+      <p class="eyebrow">In this briefing</p>
+      <a href="#executive-summary">Executive summary</a>
+      {% if content contains 'id="aiml-articles"' %}
+      <a href="#aiml-articles">AI/ML articles</a>
+      {% endif %}
+      {% if content contains 'id="azureaws-articles"' %}
+      <a href="#azureaws-articles">Azure/AWS articles</a>
+      {% endif %}
+      {% if content contains 'id="aiml-repositories"' %}
+      <a href="#aiml-repositories">AI/ML repositories</a>
+      {% endif %}
+      {% if page.report_file %}<a class="download-link" href="{{ '/reports/' | append: page.report_file | relative_url }}" download>Download Markdown ↓</a>{% endif %}
+    </nav>
+    <div>
+      <div class="prose">{{ content }}</div>
+      <aside class="publication-note">This briefing was researched and written by an AI agent. Follow the source links for the original findings and context.</aside>
+    </div>
+  </div>
 </article>

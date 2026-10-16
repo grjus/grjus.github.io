@@ -1,11 +1,15 @@
-title: AI / ML Notes
-description: Krótkie analizy badań i narzędzi AI. Źródła, konkrety i ograniczenia.
+title: AI Signal
+description: A three-day briefing on AI agents, research, and cloud infrastructure. Primary sources, practical implications, and clear limitations.
 url: https://grjus.github.io
 baseurl: ""
-lang: pl
+lang: en
 timezone: Europe/Warsaw
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
+plugins:
+  - jekyll-paginate
+paginate: 10
+paginate_path: /page/:num/
 defaults:
   - scope:
       path: ""
@@ -13,5 +17,10 @@ defaults:
     values:
       layout: post
 exclude:
+  - AGENTS.md
   - README.md
   - docs
+  - scripts
+  - tests
+  - Gemfile
+  - Gemfile.lock
