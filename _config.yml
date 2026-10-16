@@ -17,6 +17,12 @@ defaults:
     values:
       layout: post
 exclude:
+  # Jekyll 3 replaces its default exclusions when this list is set.
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
   - AGENTS.md
   - README.md
   - docs
