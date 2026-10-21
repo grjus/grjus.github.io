@@ -8,7 +8,7 @@ a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .header-actions { display: flex; align-items: center; gap: 20px; }
 .theme-toggle { border: 1px solid var(--line); border-radius: 20px; padding: 6px 12px; font: inherit; font-size: 13px; background: var(--paper); color: var(--muted); cursor: pointer; white-space: nowrap; }
-.theme-toggle:hover, .theme-toggle[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 .site-header { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); gap: 20px; }
 .wordmark { color: var(--ink); font-weight: 750; font-size: 20px; letter-spacing: -.6px; text-decoration: none; }
 .wordmark span { color: var(--accent); }

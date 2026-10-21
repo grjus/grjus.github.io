@@ -8,7 +8,8 @@
 
   function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
-    button.setAttribute('aria-pressed', String(theme === 'dark'));
+    button.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   }
 
   applyTheme(document.documentElement.dataset.theme);
