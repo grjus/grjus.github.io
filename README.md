@@ -31,11 +31,31 @@ Save plain Markdown in `reports/YYYY-MM-DD_HHMM_deepresearch.md`, then run:
 python3 scripts/import_report.py reports/YYYY-MM-DD_HHMM_deepresearch.md --check
 python3 scripts/import_report.py reports/YYYY-MM-DD_HHMM_deepresearch.md --description 'A factual archive preview.'
 python3 -m unittest discover -s tests
+node --test tests/theme.test.cjs
 python3 -m scripts.validate_archive
 bundle exec jekyll build --strict_front_matter
 ```
 
 The first Markdown heading supplies the title. `--description` supplies the separate preview below the title. The importer generates `_posts/YYYY-MM-DD-HHMM-deepresearch.md`; submit it together with the report in the same PR. A report in `reports/` alone does not appear in the archive. Importing the same pair again makes no content changes; different existing content is protected from overwrite.
+
+## Delete a briefing
+
+From the repository root, preview the files, then delete the pair:
+
+```sh
+python3 scripts/delete_briefing.py reports/YYYY-MM-DD_HHMM_deepresearch.md --check
+python3 scripts/delete_briefing.py reports/YYYY-MM-DD_HHMM_deepresearch.md
+python3 -m scripts.validate_archive
+```
+
+Replace the timestamp with the briefing you want to remove. You can also supply its
+generated `_posts/YYYY-MM-DD-HHMM-deepresearch.md` path or either filename. The command
+checks that both files exist and that the post references the matching report before
+deleting either file. `--check` leaves both files intact.
+
+Review and submit both deletions together in a pull request. The public briefing and
+Markdown download disappear after the change is merged and GitHub Pages redeploys.
+To undo an uncommitted deletion, restore both files with Git.
 
 ## Preview and hosting
 
